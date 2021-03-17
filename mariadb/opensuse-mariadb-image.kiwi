@@ -17,7 +17,7 @@
         tag="latest"
         additionaltags="%PKG_VERSION%,%PKG_VERSION%-%RELEASE%"
         maintainer="Thorsten Kukuk &lt;kukuk@suse.com&gt;">
-        <entrypoint execute="/usr/local/bin/entrypoint.sh"/>
+        <entrypoint execute="/entrypoint.sh"/>
         <subcommand execute="mysqld"/>
         <expose>
           <port number='3306'/>
@@ -52,6 +52,5 @@
     <package name="timezone"/>
     <package name="util-linux"/><!-- su is needed for entrypoint.sh -->
     <package name="pwgen"/><!-- pwgen is needed for entrypoint.sh -->
-    <archive name="entrypoint.tar.gz"/>
   </packages>
 </image>
