@@ -16,6 +16,7 @@ podman run -d --rm --name samba -v /home:/home registry.opensuse.org/home/kukuk/
 ```
 
 ### Options:
+```
  -s <name:path>[:browse:readonly:guest:users:admins:writelist:comment]
     Configure a share.
      * name             Required, name of the share
@@ -37,16 +38,17 @@ podman run -d --rm --name samba -v /home:/home registry.opensuse.org/home/kukuk/
      * GID              Optional, GID of the group
  -h
     Display help text and exit
-
+```
 ### Environment variables:
-  DEBUG=[0|1]		Enable debug mode
+```
+  DEBUG=[0|1]           Enable debug mode
   TZ=<timezone>         Set timezone
-  WORKGROUP=<name>	Specify name of workgroup, default is 'WORKGROUP'
+  WORKGROUP=<name>      Specify name of workgroup, default is 'WORKGROUP'
   USER=<name:password>[:UID:group:GID]
   SHARE=<name:path>[:browse:readonly:guest:users:admins:writelist:comment]
   USER_FILE=<filename>  Specify file containing user entries to create
   SHARE_FILE=<filename> Specify file containing shares to export
-
+```
 Additional variables starting with the same name followed by a number are
 supported for 'USER' and 'SHARE', e.g. SHARE, SHARE1, SHARE2, ...
 
