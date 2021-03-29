@@ -4,6 +4,7 @@
 
 FROM opensuse/tumbleweed
 
+# labelprefix=org.opensuse.httpd
 PREFIXEDLABEL org.opencontainers.image.title="Apache httpd container"
 PREFIXEDLABEL org.opencontainers.image.description="Apache httpd container"
 PREFIXEDLABEL org.opencontainers.image.created="%BUILDTIME%"
