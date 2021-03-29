@@ -11,7 +11,8 @@ PREFIXEDLABEL org.opencontainers.image.version="%%PKG_VERSION%%.%RELEASE%"
 PREFIXEDLABEL org.openbuildservice.disturl="%DISTURL%"
 PREFIXEDLABEL org.opensuse.reference="registry.opensuse.org/opensuse/httpd:%%PKG_VERSION%%.%RELEASE%"
 
-RUN zypper install -y httpd
+RUN zypper install -y --no-recommends httpd \
+    zypper clean
 
 # https://httpd.apache.org/docs/2.4/stopping.html#gracefulstop
 STOPSIGNAL SIGWINCH
