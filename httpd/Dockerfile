@@ -5,13 +5,13 @@
 FROM opensuse/tumbleweed
 
 # labelprefix=org.opensuse.httpd
-#PREFIXEDLABEL org.opencontainers.image.title="Apache httpd container"
-#PREFIXEDLABEL org.opencontainers.image.description="Apache httpd container"
-#PREFIXEDLABEL org.opencontainers.image.created="%BUILDTIME%"
-#PREFIXEDLABEL org.opencontainers.image.version="%%PKG_VERSION%%.%RELEASE%"
-#PREFIXEDLABEL org.opencontainers.image.vendor="openSUSE Project"
-#PREFIXEDLABEL org.openbuildservice.disturl="%DISTURL%"
-#PREFIXEDLABEL org.opensuse.reference="registry.opensuse.org/opensuse/httpd:%%PKG_VERSION%%.%RELEASE%"
+PREFIXEDLABEL org.opencontainers.image.title="Apache httpd container"
+PREFIXEDLABEL org.opencontainers.image.description="Apache httpd container"
+PREFIXEDLABEL org.opencontainers.image.created="%BUILDTIME%"
+PREFIXEDLABEL org.opencontainers.image.version="%%PKG_VERSION%%.%RELEASE%"
+PREFIXEDLABEL org.opencontainers.image.vendor="openSUSE Project"
+PREFIXEDLABEL org.openbuildservice.disturl="%DISTURL%"
+PREFIXEDLABEL org.opensuse.reference="registry.opensuse.org/opensuse/httpd:%%PKG_VERSION%%.%RELEASE%"
 
 RUN zypper install -y --no-recommends apache2 && \
     zypper clean
