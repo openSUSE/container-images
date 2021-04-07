@@ -1,9 +1,22 @@
-#!BuildTag: opensuse/samba
+# Defines the tag for OBS and build script builds:
+#!BuildTag: opensuse/samba:latest
+#!BuildTag: opensuse/samba:%%MINOR%%
+#!BuildTag: opensuse/samba:%%PKG_VERSION%%
+#!BuildTag: opensuse/samba:%%PKG_VERSION%%-%RELEASE%
 
 FROM opensuse/tumbleweed
 LABEL maintainer="Bruno Leon <bruno.leon@suse.com>"
 
-RUN zypper --non-interactive install catatonit timezone system-user-mail shadow samba
+# labelprefix=org.opensuse.samba
+PREFIXEDLABEL org.opencontainers.image.title="Samba container"
+PREFIXEDLABEL org.opencontainers.image.description="Samba container"
+PREFIXEDLABEL org.opencontainers.image.created="%BUILDTIME%"
+PREFIXEDLABEL org.opencontainers.image.version="%%PKG_VERSION%%-%RELEASE%"
+PREFIXEDLABEL org.opencontainers.image.vendor="openSUSE Project"
+PREFIXEDLABEL org.openbuildservice.disturl="%DISTURL%"
+PREFIXEDLABEL org.opensuse.reference="registry.opensuse.org/opensuse/samba:%%PKG_VERSION%%-%RELEASE%"
+
+RUN zypper --non-interactive install catatonit timezone system-user-mail shadow samba && zypper clean
 
 COPY entrypoint.sh /entrypoint.sh
 
@@ -13,4 +26,3 @@ HEALTHCHECK --interval=60s --timeout=15s \
             CMD smbclient -L \\localhost -U % -m SMB3
 
 ENTRYPOINT ["/usr/bin/catatonit", "--", "/entrypoint.sh"]
-
