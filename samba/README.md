@@ -12,7 +12,7 @@
 The command to run this container is:
 
 ```sh
-podman run -d --rm --name samba -v /home:/home registry.opensuse.org/home/kukuk/container/container/samba
+podman run -d --rm --name samba -v /home:/home registry.opensuse.org/opensuse/samba
 ```
 
 ### Options:
