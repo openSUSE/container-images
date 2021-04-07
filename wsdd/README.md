@@ -18,7 +18,7 @@ podman run -d --rm --name wsdd --net=host -e HOSTNAME=$(hostname) registry.opens
 ```
 
 ### Environment variables:
-  DEBUG=[0|1]		Enable debug mode
-  HOSTNAME=<hostname>	Samba Netbios name to report.
-  WORKGROUP=<name>	Workgroup name
-  DOMAIN=<domain>	Report being a member of an AD DOMAIN. Disables WORKGROUP if set.
+* DEBUG=[0|1]		Enable debug mode
+* HOSTNAME=<hostname>	Samba Netbios name to report.
+* WORKGROUP=<name>	Workgroup name
+* DOMAIN=<domain>	Report being a member of an AD DOMAIN. Disables WORKGROUP if set.
