@@ -16,9 +16,9 @@ PREFIXEDLABEL org.opencontainers.image.vendor="openSUSE Project"
 PREFIXEDLABEL org.openbuildservice.disturl="%DISTURL%"
 PREFIXEDLABEL org.opensuse.reference="registry.opensuse.org/opensuse/samba:%%PKG_VERSION%%-%RELEASE%"
 
-RUN zypper --non-interactive install catatonit timezone system-user-mail shadow samba && zypper clean
-
 COPY entrypoint.sh /entrypoint.sh
+
+RUN zypper --non-interactive install catatonit timezone system-user-mail shadow samba && zypper clean && chmod 755 /entrypoint.sh
 
 EXPOSE 137/udp 138/udp 139 445
 
