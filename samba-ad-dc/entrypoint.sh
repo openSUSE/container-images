@@ -53,7 +53,7 @@ domain_join() {
     echo "Joining domain $domain_name as a domain controller..."
     REALM=${domain_name^^}
     init_krb5_conf
-    samba-tool domain join "$domain_name" $type --password="$password"
+    samba-tool domain join "$domain_name" $type -U "$admin" --password="$password"
     echo "DONE"
 }
 
