@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 DEBUG=${DEBUG:-"0"}
 
