@@ -189,14 +189,14 @@ if [ -n "${USER_FILE}" ]; then
     while read -r line
     do
         add_user "$line"
-    done <<< "$USER_FILE"
+    done < "$USER_FILE"
 fi
 
 if [ -n "${SHARE_FILE}" ]; then
     while read -r line
     do
         add_share "$line"
-    done <<< "$SHARE_FILE"
+    done < "$SHARE_FILE"
 fi
 
 exec catatonit -- smbd -F --debug-stdout --no-process-group --configfile="$CONFIG_FILE" < /dev/null
