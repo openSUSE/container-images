@@ -73,6 +73,7 @@ init_smb_conf() {
   socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
   local master = no
   dns proxy = no
+  dos charset = ascii
 # Security
   client ipc max protocol = SMB3
   client ipc min protocol = SMB2_10
