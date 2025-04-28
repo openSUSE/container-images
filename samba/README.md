@@ -48,6 +48,8 @@ podman run -d --rm --name samba -v /home:/home registry.opensuse.org/opensuse/sa
   SHARE=<name:path>[:browse:readonly:guest:users:admins:writelist:comment]
   USER_FILE=<filename>  Specify file containing user entries to create
   SHARE_FILE=<filename> Specify file containing shares to export
+  DOSCHARSET            Sets value for [G] smb.conf param 'dos charset'
+                        if not set default value 'ascii' is used.
 ```
 Additional variables starting with the same name followed by a number are
 supported for 'USER' and 'SHARE', e.g. SHARE, SHARE1, SHARE2, ...
