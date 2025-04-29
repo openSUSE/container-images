@@ -73,6 +73,7 @@ init_smb_conf() {
   socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
   local master = no
   dns proxy = no
+  dos charset = $DOSCHARSET
 # Security
   client ipc max protocol = SMB3
   client ipc min protocol = SMB2_10
@@ -132,6 +133,8 @@ Environment variables:
   SHARE=<name:path>[:browse:readonly:guest:users:admins:writelist:comment]
   USER_FILE=<filename>	Specify file containing user entries to create
   SHARE_FILE=<filename>	Specify file containing shares to export
+  DOSCHARSET            Sets value for [G] smb.conf param 'dos charset'
+                        if not set default value 'ascii' is used.
 
 Additional variables starting with the same name followed by a number are
 supported for 'USER' and 'SHARE', e.g. SHARE, SHARE1, SHARE2, ...
@@ -145,6 +148,9 @@ EOT
 #
 # Main
 #
+
+# default to ascii
+DOSCHARSET=${DOSCHARSET:-"ascii"}
 
 setup_timezone
 init_smb_conf
